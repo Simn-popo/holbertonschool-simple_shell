@@ -9,7 +9,7 @@ void execute_command(char **args)
 {
 	int status;
 	pid_t pid = fork();
-	
+
 	if (args[0] == NULL)
 		return;
 
