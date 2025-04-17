@@ -24,7 +24,6 @@ int main(void)
 		{
 			if (isatty(STDIN_FILENO))
 				printf("\n");
-			free(command);
 			break;
 		}
 		command[strcspn(command, "\n")] = '\0';
