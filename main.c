@@ -22,7 +22,8 @@ int main(void)
 
 		if (nread == -1)
 		{
-			printf("\n");
+			if (isatty(STDIN_FILENO))
+				printf("\n");
 			break;
 		}
 		command[strcspn(command, "\n")] = '\0';
