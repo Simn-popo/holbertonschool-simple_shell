@@ -1,39 +1,27 @@
 #include "main.h"
 /**
- * 
+ * return_exe - Search for a command in the PATH
+ * @args: Array of arguments, where args[0] is the name of the command
  *
- * 
- *
- * 
+ * Return: 0 if the executable is found, -1 otherwise
  */
 
 int return_exe(char **args)
 {
-	int i = 0, j = 0;
+	int i = 0;
 	char *path[1024];
 	char *full_path;
 	char temp[1024];
-	char *token;
+	char *delim = ":";
 
 	full_path = strdup(getenv("PATH"));
 
-	token = strtok(full_path, ":");
-	
-	while (token != NULL)
-        {
-                path[i++] = token;
-                token = strtok(NULL, ":");
-        }
+	parse_command(full_path, path, delim);
 
-        path[i] = NULL;
-
-	strcpy(temp, "/");
-	strcat(temp, args[0]);
-
-	while (path[j] != NULL)
+	while (path[i] != NULL)
 	{
 		temp[0] = '\0';
-		strcat(temp, path[j]);
+		strcat(temp, path[i]);
 		strcat(temp, "/");
 		strcat(temp, args[0]);
 
@@ -43,7 +31,7 @@ int return_exe(char **args)
 			free(full_path);
 			return (0);
 		}
-		j++;
+		i++;
 	}
 
 	free(full_path);

@@ -8,7 +8,7 @@
 #include <string.h>
 #include <sys/wait.h>
 
-void parse_command(char *command, char **args);
+void parse_command(char *command, char **args, char *delim);
 void execute_command(char **args);
 int return_exe(char **args);
 int handle_builtin(char **args);
