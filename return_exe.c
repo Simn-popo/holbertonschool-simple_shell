@@ -1,10 +1,9 @@
 #include "main.h"
 /**
- * 
+ * return_exe - Search for a command in the PATH
+ * @args: Array of arguments, where args[0] is the name of the command
  *
- * 
- *
- * 
+ * Return: 0 if the executable is found, -1 otherwise
  */
 
 int return_exe(char **args)
@@ -13,7 +12,7 @@ int return_exe(char **args)
 	char *path[1024];
 	char *full_path;
 	char temp[1024];
-	char *delim =":";
+	char *delim = ":";
 
 	full_path = strdup(getenv("PATH"));
 

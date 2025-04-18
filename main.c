@@ -33,7 +33,7 @@ int main(void)
 
 		if (strchr(args[0], '/') != NULL)
 			execute_command(args);
-		
+
 		else if (return_exe(args) == 0)
 			execute_command(args);
 	}
