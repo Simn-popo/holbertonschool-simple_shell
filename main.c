@@ -29,8 +29,10 @@ int main(void)
 		command[strcspn(command, "\n")] = '\0';
 
 		parse_command(command, args);
-
-		execute_command(args);
+		
+		if (return_exe(args) == 0)
+			execute_command(args);
+		break;
 	}
 	free(command);
 	return (0);
