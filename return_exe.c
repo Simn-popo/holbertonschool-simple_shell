@@ -29,15 +29,17 @@ int return_exe(char **args)
 
 	strcpy(temp, "/");
 	strcat(temp, args[0]);
-	args[0] = temp;
 
 	while (path[j] != NULL)
 	{
-		strcat(path[j], args[0]);
+		temp[0] = '\0';
+		strcat(temp, path[j]);
+		strcat(temp, "/");
+		strcat(temp, args[0]);
 
-		if (access(path[j], F_OK) == 0)
+		if (access(temp, F_OK) == 0)
 		{
-			args[0] = path[j];
+			args[0] = strdup(temp);
 			free(full_path);
 			return (0);
 		}
