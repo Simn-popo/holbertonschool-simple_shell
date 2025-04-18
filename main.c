@@ -1,9 +1,8 @@
 #include "main.h"
 /**
- * main - Entry point
- * Description: UNIX command line interpreter
- * @void: ..
- * Return: nothing
+ * main - Entry point UNIX command line interpreter
+ *
+ * Return: Always 0
  */
 
 int main(void)
@@ -30,7 +29,7 @@ int main(void)
 		command[strcspn(command, "\n")] = '\0';
 
 		parse_command(command, args, delim);
-		
+
 		if (args[0] == NULL)
 			continue;
 

@@ -2,7 +2,8 @@
 /**
  * execute_command - create a child process and the command
  * that gives an argument
- * @args: ..
+ * @args: string
+ *
  * Return: nothing
  */
 void execute_command(char **args)

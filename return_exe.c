@@ -14,7 +14,7 @@ int return_exe(char **args)
 	char temp[1024];
 	char *delim = ":";
 
-	full_path = strdup(getenv("PATH"));
+	full_path = strdup(_getenv("PATH", environ));
 
 	parse_command(full_path, path, delim);
 

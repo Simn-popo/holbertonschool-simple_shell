@@ -7,10 +7,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/wait.h>
-
+extern char **environ;
 void parse_command(char *command, char **args, char *delim);
 void execute_command(char **args);
 int return_exe(char **args);
 int handle_builtin(char **args);
+char *_getenv(const char *name, char **env);
 
 #endif
