@@ -32,7 +32,6 @@ int main(void)
 		
 		if (return_exe(args) == 0)
 			execute_command(args);
-		break;
 	}
 	free(command);
 	return (0);
