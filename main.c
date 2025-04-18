@@ -12,6 +12,7 @@ int main(void)
 	size_t len = 0;
 	char *args[1024];
 	ssize_t nread;
+	char *delim = " ";
 
 	while (1)
 	{
@@ -28,7 +29,7 @@ int main(void)
 		}
 		command[strcspn(command, "\n")] = '\0';
 
-		parse_command(command, args);
+		parse_command(command, args, delim);
 
 		if (strchr(args[0], '/') != NULL)
 			execute_command(args);
