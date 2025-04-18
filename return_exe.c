@@ -27,9 +27,6 @@ int return_exe(char **args)
 
         path[i] = NULL;
 
-	strcpy(temp, "/");
-	strcat(temp, args[0]);
-
 	while (path[j] != NULL)
 	{
 		temp[0] = '\0';
