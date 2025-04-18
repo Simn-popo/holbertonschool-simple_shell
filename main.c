@@ -30,6 +30,9 @@ int main(void)
 		command[strcspn(command, "\n")] = '\0';
 
 		parse_command(command, args, delim);
+		
+		if (args[0] == NULL)
+			continue;
 
 		if (strchr(args[0], '/') != NULL)
 			execute_command(args);
