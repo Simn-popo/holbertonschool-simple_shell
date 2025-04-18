@@ -1,8 +1,9 @@
 #include "main.h"
 /**
  * parse_command - tokenized the string
- * @command: ..
- * @args: ..
+ * @command: string
+ * @args: array
+ * @delim: Delimiter used for splitting the string
  *
  * Return: nothing
  */
