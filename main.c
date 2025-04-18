@@ -30,7 +30,7 @@ int main(void)
 
 		parse_command(command, args);
 		
-		if (return_exe(args) == 0) //si return_exe = 0 la fonction execute_command s'execute
+		if (return_exe(args) == 0)
 			execute_command(args);
 		break;
 	}

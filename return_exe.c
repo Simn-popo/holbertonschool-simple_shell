@@ -13,10 +13,11 @@ int return_exe(char **args)
 	char *path[1024];
 	char *full_path;
 	char temp[1024];
+	char *token;
 
 	full_path = strdup(getenv("PATH"));
 
-	char *token = strtok(full_path, ":");
+	token = strtok(full_path, ":");
 	
 	while (token != NULL)
         {
@@ -30,7 +31,7 @@ int return_exe(char **args)
 	strcat(temp, args[0]);
 	args[0] = temp;
 
-	while (path != NULL)
+	while (path[j] != NULL)
 	{
 		strcat(path[j], args[0]);
 
