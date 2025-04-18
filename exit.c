@@ -5,7 +5,6 @@
  *
  * Return: 1 if an internal command has been executed, 0 otherwise
  */
-extern char **environ;
 int handle_builtin(char **args)
 {
 	int i;
@@ -16,6 +15,7 @@ int handle_builtin(char **args)
 	if (strcmp(args[0], "exit") == 0)
 	{
 		int code = 0;
+
 		if (args[1])
 			code = atoi(args[1]);
 		exit(code);
