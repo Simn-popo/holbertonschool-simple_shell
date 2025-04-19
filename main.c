@@ -31,10 +31,7 @@ int main(void)
 		parse_command(command, args, delim);
 
 		if (args[0] == NULL)
-		{
-			free(command);
 			continue;
-		}
 
 		if (strchr(args[0], '/') != NULL)
 			execute_command(args);
