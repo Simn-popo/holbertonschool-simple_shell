@@ -16,7 +16,7 @@ int main(void)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			printf("$ ");
+			printf("Hugo is the best SWE: ");
 
 		nread = getline(&command, &len, stdin);
 
@@ -31,7 +31,10 @@ int main(void)
 		parse_command(command, args, delim);
 
 		if (args[0] == NULL)
+		{
+			free(command);
 			continue;
+		}
 
 		if (strchr(args[0], '/') != NULL)
 			execute_command(args);
