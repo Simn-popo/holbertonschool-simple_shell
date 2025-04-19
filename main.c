@@ -38,8 +38,7 @@ int main(void)
 
 		else if (return_exe(args) == 0)
 			execute_command(args);
-
-		free(args[0]);
+			free(args[0]);
 	}
 	free(command);
 	return (0);
