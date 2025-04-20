@@ -17,15 +17,9 @@ int return_exe(char **args)
 	full_path = _getenv("PATH", environ);
 	if (full_path == NULL || strlen(full_path) == 0)
 	{
-		setenv("PATH", "/bin:/usr/bin", 1);
-		full_path = _getenv("PATH", environ);
-
-	if (full_path == NULL || strlen(full_path) == 0)
-		{
-			fprintf(stderr, "error : Path environement variable couldn't be st. \n");
-			return (-1);
-		}
+		full_path = "/bin:/usr/bin";
 	}
+
 	full_path = strdup(full_path);
 	if (full_path == NULL)
 	{
