@@ -44,7 +44,7 @@ int return_exe(char **args)
 			free(full_path);
 			return (0);
 		}
-		i++
+		i++;
 	}
 	free(full_path);
 	return (-1);
