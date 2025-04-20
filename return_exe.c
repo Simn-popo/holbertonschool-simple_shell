@@ -15,9 +15,10 @@ int return_exe(char **args)
 	char *delim = ":";
 
 	full_path = _getenv("PATH", environ);
-	if (full_path == NULL)
+	if (full_path == NULL || strlen(full_path) == 0)
 	{
-		fprintf(stderr, "error: Path env, not set. \n");
+		setenv("PATH", "/bin:/usr/bin", 1);
+		full_path = _getenv("PATH", environ);
 		return (-1);
 	}
 	full_path = strdup(full_path);
