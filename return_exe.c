@@ -15,10 +15,8 @@ int return_exe(char **args)
 	char *delim = ":";
 
 	full_path = _getenv("PATH", environ);
-	if (full_path == NULL || strlen(full_path) == 0)
-	{
-		full_path = "/bin:/usr/bin";
-	}
+	if (full_path == NULL || *full_path == '\0')
+		return (-1);
 
 	full_path = strdup(full_path);
 	if (full_path == NULL)
