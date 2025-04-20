@@ -14,7 +14,7 @@ int main(void)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			prinf("Hugo is the best SWE, i agree: ");
+			printf("Hugo is the best SWE, i agree: ");
 
 		nread = getline(&command, &len, stdin);
 		if (nread == -1)
@@ -30,7 +30,7 @@ int main(void)
 			print_env();
 		else if (strchr(args[0], '/'))
 			execute_command(args);
-		else if (return_exe(agrs) == 0)
+		else if (return_exe(args) == 0)
 			execute_command(args);
 		else
 			fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
