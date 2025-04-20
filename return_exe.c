@@ -11,7 +11,7 @@ int return_exe(char **args, char **env)
 	int i = 0;
 	char *path_list[1024];
 	char *path_env, *dup_path;
-	char temp[1024];
+	char *temp;
 	char *delim = ":";
 
 	path_env = _getenv("PATH", env);
@@ -24,20 +24,29 @@ int return_exe(char **args, char **env)
 	parse_command(dup_path, path_list, delim);
 	while (path_list[i] != NULL)
 	{
-		sprintf(temp, "%s%s", path_list[i], args[0]);
+		temp = malloc(strlen(path_list[i]) + 1 + strlen(args[0]) + 1);
+		if (temp == NULL)
+		{
+			free(dup_path);
+			return (-1);
+		}
+		strcpy(temp, path_list[i]);
+		strcat(temp, "/");
+		strcat(temp, args[0]);
 		if (access(temp, F_OK) == 0)
 		{
+			free(args[0]);
 			args[0] = strdup(temp);
-			if (args[0] == NULL)
-			{
-				free(dup_path);
-				return (-1);
-			}
+			free(temp);
 			free(dup_path);
+			if (args[0] == NULL)
+			return (-1);
 			return (0);
 		}
+		free(temp);
 		i++;
 	}
 	free(dup_path);
 	return (-1);
 }
+
