@@ -14,7 +14,18 @@ int return_exe(char **args)
 	char temp[1024];
 	char *delim = ":";
 
-	full_path = strdup(_getenv("PATH", environ));
+	full_path = _getenv("PATH", environ);
+	if (full_path == NULL)
+	{
+		fprintf(stderr, "error: Path env, not set. \n");
+		return(-1);
+	}
+	full_path = strdup(full_path);
+	if (full_path == NULL)
+	{
+		perror("error duplicating Path");
+		return (-1);
+	}
 
 	parse_command(full_path, path, delim);
 
