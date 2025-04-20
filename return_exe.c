@@ -9,10 +9,7 @@
 int return_exe(char **args)
 {
 	int i = 0;
-	char *path[1024];
-	char *full_path;
-	char temp[1024];
-	char *delim = ":";
+	char *path[1024], temp[1024], *full_path, *delim = ":";
 
 	full_path = _getenv("PATH", environ);
 	if (full_path == NULL || *full_path == '\0')
@@ -38,12 +35,17 @@ int return_exe(char **args)
 		{
 			free(args[0]);
 			args[0] = strdup(temp);
+			if (args[0] == NULL)
+			{
+				perror("error duplicating command path");
+			free(full_path);
+			return (-1);
+			}
 			free(full_path);
 			return (0);
 		}
-		i++;
+		i++
 	}
-
 	free(full_path);
 	return (-1);
 }
