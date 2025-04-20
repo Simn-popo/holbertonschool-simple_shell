@@ -24,14 +24,9 @@ int return_exe(char **args, char **env)
 	parse_command(dup_path, path_list, delim);
 	while (path_list[i] != NULL)
 	{
-		strcpy(temp, path_list[i]);
-		strcat(temp, "/");
-		strcat(temp, args[0]);
-
+		sprintf(temp, "%s%s", path_list[i], args[0]);
 		if (access(temp, F_OK) == 0)
 		{
-			if (args[0 != NULL])
-			free(args[0]);
 			args[0] = strdup(temp);
 			if (args[0] == NULL)
 			{
