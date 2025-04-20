@@ -8,6 +8,7 @@
  */
 char *_getenv(const char *name, char **env)
 {
+<<<<<<< HEAD
 	int i, j, status;
 
 	for (i = 0; env[i] != NULL; i++)
@@ -25,6 +26,16 @@ char *_getenv(const char *name, char **env)
 		if (status)
 		{
 			return (&env[i][j + 1]);
+=======
+	int i;
+	size_t len = strlen(name);
+
+	for (i = 0; env[i] != NULL; i++)
+	{
+		if(strncmp(env[i], name, len) == 0 && env[i][len] == '=')
+		{
+			return (&env[i][len + 1]);
+>>>>>>> simon
 		}
 	}
 	return (NULL);
