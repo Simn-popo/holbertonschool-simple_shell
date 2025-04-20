@@ -18,7 +18,7 @@ int return_exe(char **args)
 	if (full_path == NULL)
 	{
 		fprintf(stderr, "error: Path env, not set. \n");
-		return(-1);
+		return (-1);
 	}
 	full_path = strdup(full_path);
 	if (full_path == NULL)
