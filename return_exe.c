@@ -23,6 +23,7 @@ int return_exe(char **args)
 	parse_command(full_path, path, delim);
 	while (path[i] != NULL)
 	{
+		temp[0] = '\0';
 		strcat(temp, path[i]);
 		strcat(temp, "/");
 		strcat(temp, args[0]);
@@ -31,6 +32,11 @@ int return_exe(char **args)
 		{
 			free(args[0]);
 			args[0] = strdup(temp);
+			if (args[0] == NULL)
+			{
+				free(full_path);
+				return (-1);
+			}
 			free(full_path);
 			return (0);
 		}
