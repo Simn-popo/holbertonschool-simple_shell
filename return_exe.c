@@ -36,6 +36,7 @@ int return_exe(char **args)
 
 		if (access(temp, F_OK) == 0)
 		{
+			free(args[0]);
 			args[0] = strdup(temp);
 			free(full_path);
 			return (0);
