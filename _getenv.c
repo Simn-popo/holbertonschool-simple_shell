@@ -8,23 +8,14 @@
  */
 char *_getenv(const char *name, char **env)
 {
-	int i, j, status;
+	int i;
+	size_t len = strlen(name);
 
 	for (i = 0; env[i] != NULL; i++)
 	{
-		status = 1;
-
-		for (j = 0; env[i][j] != '='; j++)
+		if(strncmp(env[i], name, len) == 0 && env[i][len] == '=')
 		{
-			if (name[j] != env[i][j])
-			{
-				status = 0;
-				break;
-			}
-		}
-		if (status)
-		{
-			return (&env[i][j + 1]);
+			return (&env[i][len + 1]);
 		}
 	}
 	return (NULL);
