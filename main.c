@@ -29,10 +29,10 @@ int main(void)
 		if (strcmp(args[0], "env") == 0)
 			print_env(environ);
 		else if (strchr(args[0], '/'))
-			execute_command(args);
+			execute_command(args, environ);
 		else if (return_exe(args, environ) == 0)
 		{
-			execute_command(args);
+			execute_command(args, environ);
 			free(args[0]);
 		}
 		else

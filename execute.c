@@ -6,7 +6,7 @@
  *
  * Return: nothing
  */
-void execute_command(char **args)
+void execute_command(char **args, char **env)
 {
 	int status;
 	pid_t pid = fork();
@@ -22,8 +22,7 @@ void execute_command(char **args)
 
 	if (pid == 0)
 	{
-		if (execve(args[0], args, NULL) == -1)
-		if (execve(args[0], args, environ) == -1)
+		if (execve(args[0], args, env) == -1)
 		{
 			perror("command not found");
 			exit(0);
