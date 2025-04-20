@@ -13,5 +13,6 @@ void execute_command(char **args);
 int return_exe(char **args);
 int handle_builtin(char **args);
 char *_getenv(const char *name, char **env);
+void print_env(void);
 
 #endif
