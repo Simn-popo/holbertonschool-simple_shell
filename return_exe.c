@@ -9,24 +9,20 @@
 int return_exe(char **args)
 {
 	int i = 0;
-	char *path[1024], temp[1024], *full_path, *delim = ":";
+	char *path[1024], temp[1024];
+	char *full_path = _getenv("PATH", environ);
+	char *delim = ":";
 
-	full_path = _getenv("PATH", environ);
 	if (full_path == NULL || *full_path == '\0')
 		return (-1);
 
 	full_path = strdup(full_path);
 	if (full_path == NULL)
-	{
-		perror("error duplicating Path");
 		return (-1);
-	}
 
 	parse_command(full_path, path, delim);
-
 	while (path[i] != NULL)
 	{
-		temp[0] = '\0';
 		strcat(temp, path[i]);
 		strcat(temp, "/");
 		strcat(temp, args[0]);
@@ -35,12 +31,6 @@ int return_exe(char **args)
 		{
 			free(args[0]);
 			args[0] = strdup(temp);
-			if (args[0] == NULL)
-			{
-				perror("error duplicating command path");
-			free(full_path);
-			return (-1);
-			}
 			free(full_path);
 			return (0);
 		}
