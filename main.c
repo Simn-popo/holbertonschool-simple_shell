@@ -1,47 +1,37 @@
 #include "main.h"
 /**
- * main - Entry point UNIX command line interpreter
- *
- * Return: Always 0
+ * main -entry point UNIX command line interpreter
+ * Return : always 0
  */
 
 int main(void)
 {
-	char *command = NULL, *args[1024], *delim = " ";
+	char *command = NULL, *args[1024];
 	size_t len = 0;
 	ssize_t nread;
 	int exit_status = 0;
 
-	while (1)
+	while(1)
 	{
 		if (isatty(STDIN_FILENO))
-			printf("Hugo is the best SWE, i agree: ");
+			prinf("Hugo is the best SWE, i agree: ");
 
 		nread = getline(&command, &len, stdin);
-		if (nread == -1)
-		{
-			if (isatty(STDIN_FILENO))
-				printf("\n");
-			break;
-		}
+		if (nread == -1) break;
 
-		command[strcspn(command, "\n")] = '\0';
-		parse_command(command, args, delim);
-		if (args[0] == NULL)
-			continue;
+		command[strcspn(command,"\n")] = '\0';
+		parse_command(command, args, " ");
 
-		if (strchr(args[0], '/'))
+		if (args[0] == NULL) continu;
+
+		if (strcmp(args[0], "env") ==0)
+			print_env();
+		else if (strchr(args[0], '/'))
 			execute_command(args);
-		else if (return_exe(args) == 0)
-		{
+		else if (return_exe(agrs) == 0)
 			execute_command(args);
-			free(args[0]);
-		}
 		else
-		{
 			fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
-			exit_status = 127;
-		}
 	}
 	free(command);
 	return (exit_status);
