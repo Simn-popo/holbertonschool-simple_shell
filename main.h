@@ -10,9 +10,9 @@
 extern char **environ;
 void parse_command(char *command, char **args, char *delim);
 void execute_command(char **args);
-int return_exe(char **args);
-int handle_builtin(char **args);
+int return_exe(char **args, char **env);
+int handle_builtin(char **args, char **env);
 char *_getenv(const char *name, char **env);
-void print_env(void);
+void print_env(char **env);
 
 #endif

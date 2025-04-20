@@ -4,13 +4,13 @@
  * print_env - display env variable
  */
 
-void print_env(void)
+void print_env(char **env)
 {
 	int i = 0;
 
-	while (environ[i] != NULL)
+	while (env[i] != NULL)
 	{
-		printf("%s\n", environ[i]);
+		printf("%s\n", env[i]);
 		i++;
 	}
 }

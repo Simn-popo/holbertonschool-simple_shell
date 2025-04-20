@@ -5,7 +5,7 @@
  *
  * Return: 0 if the executable is found, -1 otherwise
  */
-int return_exe(char **args)
+int return_exe(char **args, char **env)
 {
 	int i = 0;
 	char *path_list[1024];
@@ -13,7 +13,7 @@ int return_exe(char **args)
 	char temp[1024];
 	char *delim = ":";
 
-	path_env = _getenv("PATH", environ);
+	path_env = _getenv("PATH", env);
 	if (path_env == NULL || *path_env == '\0')
 		return (-1);
 	dup_path = strdup(path_env);
