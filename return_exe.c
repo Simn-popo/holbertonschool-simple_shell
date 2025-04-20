@@ -8,33 +8,36 @@
 int return_exe(char **args)
 {
 	int i = 0;
-	char *path[1024], temp[1024];
-	char *full_path = _getenv("PATH", environ);
-	char *delim = "=";
+	char *path_list[1024];
+	char *path_env, *dup_path;
+	char temp[1024];
+	char *delim = ":";
 
-	if (full_path == NULL || *full_path == '\0')
+	path_env = _getenv("PATH", environ);
+	if (path_env == NULL || *path_env == '\0')
 		return (-1);
-	full_path = strdup(full_path);
-	if (full_path == NULL)
+	dup_path = strdup(path_env);
+	if (dup_path == NULL)
 		return (-1);
 
-	parse_command(full_path, path, delim);
-	while (path[i])
+	parse_command(dup_path, path_list, delim);
+	while (path_list[i] != NULL)
 	{
-		temp[0] = '\0';
-		strcat(temp, path[i]);
+		strcpy(temp, path_list[i]);
 		strcat(temp, "/");
 		strcat(temp, args[0]);
 
 		if (access(temp, F_OK) == 0)
 		{
+			free(dup_path);
 			args[0] = strdup(temp);
-			free(full_path);
+			if (args[0] == NULL)
+				return (-1);
 			return (0);
 		}
 		i++;
 	}
-	free(full_path);
+	free(dup_path);
 	return (-1);
 }
 
