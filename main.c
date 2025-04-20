@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * main -entry point UNIX command line interpreter
+ * main - entry point UNIX command line interpreter
  * Return : always 0
  */
 
@@ -11,20 +11,22 @@ int main(void)
 	ssize_t nread;
 	int exit_status = 0;
 
-	while(1)
+	while (1)
 	{
 		if (isatty(STDIN_FILENO))
 			prinf("Hugo is the best SWE, i agree: ");
 
 		nread = getline(&command, &len, stdin);
-		if (nread == -1) break;
+		if (nread == -1)
+			break;
 
-		command[strcspn(command,"\n")] = '\0';
+		command[strcspn(command, "\n")] = '\0';
 		parse_command(command, args, " ");
 
-		if (args[0] == NULL) continu;
+		if (args[0] == NULL)
+			continue;
 
-		if (strcmp(args[0], "env") ==0)
+		if (strcmp(args[0], "env") == 0)
 			print_env();
 		else if (strchr(args[0], '/'))
 			execute_command(args);
