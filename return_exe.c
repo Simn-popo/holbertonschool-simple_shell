@@ -5,31 +5,22 @@
  *
  * Return: 0 if the executable is found, -1 otherwise
  */
-
 int return_exe(char **args)
 {
 	int i = 0;
-	char *path[1024];
-	char *temp;
+	char *path[1024], temp[1024];
 	char *full_path = _getenv("PATH", environ);
-	char *delim = ":";
+	char *delim = "=";
 
 	if (full_path == NULL || *full_path == '\0')
 		return (-1);
-
 	full_path = strdup(full_path);
 	if (full_path == NULL)
 		return (-1);
 
 	parse_command(full_path, path, delim);
-	while (path[i] != NULL)
+	while (path[i])
 	{
-		temp = malloc(1024 * sizeof(char));
-		if (temp == NULL)
-		{
-			free(full_path);
-			return (-1);
-		}
 		temp[0] = '\0';
 		strcat(temp, path[i]);
 		strcat(temp, "/");
@@ -37,15 +28,13 @@ int return_exe(char **args)
 
 		if (access(temp, F_OK) == 0)
 		{
-			free(args[0]);
 			args[0] = strdup(temp);
-			free(temp);
 			free(full_path);
 			return (0);
 		}
-		free(temp);
 		i++;
 	}
 	free(full_path);
 	return (-1);
 }
+
