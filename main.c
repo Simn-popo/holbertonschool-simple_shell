@@ -16,7 +16,7 @@ int main(void)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			printf("Hugo is the best SWE: ");
+			printf("Hugo is the best SWE, i agree: ");
 
 		nread = getline(&command, &len, stdin);
 
