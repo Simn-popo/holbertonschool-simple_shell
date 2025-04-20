@@ -30,7 +30,7 @@ int main(void)
 			print_env(environ);
 		else if (strchr(args[0], '/'))
 			execute_command(args, environ);
-		else if (return_exe(args, environ) == 0)
+		else if (return_exe(args, environ) > 0)
 		{
 			execute_command(args, environ);
 			free(args[0]);

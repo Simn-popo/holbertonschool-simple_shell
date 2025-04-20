@@ -35,7 +35,6 @@ int return_exe(char **args, char **env)
 		strcat(temp, args[0]);
 		if (access(temp, F_OK) == 0)
 		{
-			free(args[0]);
 			args[0] = strdup(temp);
 			free(temp);
 			free(dup_path);
