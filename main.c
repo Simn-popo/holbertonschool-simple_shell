@@ -1,15 +1,21 @@
 #include "main.h"
 /**
- * main - entry point UNIX command line interpreter
- * Return : always 0
+ *  * main - entry point UNIX command line interpreter
+ * @ac: ...
+ * @av: ...
+ * @env: ...
+ * Return: always 0
  */
 
-int main(void)
+int main(int ac, char **env)
 {
 	char *command = NULL, *args[1024];
 	size_t len = 0;
 	ssize_t nread;
 	int exit_status = 0;
+
+	(void)ac;
+	(void)env;
 
 	while (1)
 	{
@@ -34,6 +40,11 @@ int main(void)
 		{
 			execute_command(args, environ);
 			free(args[0]);
+		}
+		else
+		{
+		fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
+			exit_status = 127;
 		}
 	}
 	free(command);

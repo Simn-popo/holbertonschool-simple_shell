@@ -22,18 +22,10 @@ void execute_command(char **args, char **env)
 
 	if (pid == 0)
 	{
-		if (args[0] != NULL)
+		if (execve(args[0], args, env) == -1)
 		{
-			if (execve(args[0], args, env) == -1)
-			{
-				perror("command not found");
-				exit(0);
-			}
-		}
-		else
-		{
-			perror("no command to execute");
-			exit(1);
+			perror(args[0]);
+			exit(127);
 		}
 	}
 	else
