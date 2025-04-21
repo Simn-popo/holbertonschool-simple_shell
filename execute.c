@@ -3,6 +3,7 @@
  * execute_command - create a child process and the command
  * that gives an argument
  * @args: string
+ * @env: Array of strings
  *
  * Return: nothing
  */
