@@ -26,17 +26,15 @@ int main(void)
 		if (args[0] == NULL)
 			continue;
 
-		if (strcmp(args[0], "env") == 0)
-			print_env(environ);
-		else if (strchr(args[0], '/'))
+		if (strchr(args[0], '/') != NULL)
+		{
 			execute_command(args, environ);
-		else if (return_exe(args, environ) > 0)
+		}
+		else if (return_exe(args, environ) == 0)
 		{
 			execute_command(args, environ);
 			free(args[0]);
 		}
-		else
-			fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
 	}
 	free(command);
 	return (exit_status);
