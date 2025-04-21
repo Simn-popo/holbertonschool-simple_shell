@@ -1,6 +1,8 @@
 #include "main.h"
 /**
  * main - entry point UNIX command line interpreter
+ * @ac: Argument count
+ * @env: Array of environment variables
  *
  * Return: The exit status of the last executed command
  */
