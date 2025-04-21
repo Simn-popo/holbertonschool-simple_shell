@@ -17,3 +17,17 @@ void print_env(char **env)
 		i++;
 	}
 }
+
+/**
+ * exit_shell - exit the mini shell
+ * 
+ */
+
+void exit_shell (char *ciao)
+{
+	if (strcmp(ciao, "exit") == 0)
+	{
+		free(ciao);
+		exit(0);
+	}
+}
