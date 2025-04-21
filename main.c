@@ -5,12 +5,15 @@
  * Return: The exit status of the last executed command
  */
 
-int main(void)
+int main(int ac, char **env)
 {
 	char *command = NULL, *args[1024];
 	size_t len = 0;
 	ssize_t nread;
 	int exit_status = 0;
+
+	(void)ac;
+	(void)env;
 
 	while (1)
 	{
