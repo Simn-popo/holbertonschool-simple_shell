@@ -9,7 +9,7 @@
 
 int main(int ac, char **env)
 {
-	char *command = NULL, *args[1024];
+	char *ciao = NULL, *args[1024];
 	size_t len = 0;
 	ssize_t nread;
 	int exit_status = 0;
@@ -21,13 +21,13 @@ int main(int ac, char **env)
 	{
 		if (isatty(STDIN_FILENO))
 			printf("Hugo is the best SWE, I agree: ");
-
-		nread = getline(&command, &len, stdin);
+		nread = getline(&ciao, &len, stdin);
 		if (nread == -1)
 			break;
 
-		command[strcspn(command, "\n")] = '\0';
-		parse_command(command, args, " ");
+		ciao[strcspn(ciao, "\n")] = '\0';
+		exit_shell(ciao);
+		parse_command(ciao, args, " ");
 
 		if (args[0] == NULL)
 			continue;
@@ -47,6 +47,6 @@ int main(int ac, char **env)
 			exit_status = 127;
 		}
 	}
-	free(command);
+	free(ciao);
 	return (exit_status);
 }
