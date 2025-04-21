@@ -1,26 +1,21 @@
 #include "main.h"
 /**
- *  * main - entry point UNIX command line interpreter
- * @ac: ...
- * @av: ...
- * @env: ...
- * Return: always 0
+ * main - entry point UNIX command line interpreter
+ *
+ * Return: The exit status of the last executed command
  */
 
-int main(int ac, char **env)
+int main(void)
 {
 	char *command = NULL, *args[1024];
 	size_t len = 0;
 	ssize_t nread;
 	int exit_status = 0;
 
-	(void)ac;
-	(void)env;
-
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			printf("Hugo is the best SWE, i agree: ");
+			printf("Hugo is the best SWE, I agree: ");
 
 		nread = getline(&command, &len, stdin);
 		if (nread == -1)
