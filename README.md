@@ -58,6 +58,7 @@ echo "ls -l" | ./hsh
 echo Hello world
 pwd
 env
+exit
 ```
 ## Testing
 To test for memory leaks, we use "Valgrind" followed by the executable. The executable command for the example is: valgrind ls
