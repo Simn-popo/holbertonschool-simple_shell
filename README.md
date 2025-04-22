@@ -30,15 +30,34 @@ The Holberton School's Simple Shell project concludes the first term of the fund
 |:----------------|:----------------|
 |main.c| Entry point|
 |main.h| Contains the function prototypes and libraries|
-|parse.c||
+|parse.c| Tokenizes the input string|
 |execute.c||
 |return_exe.c||
 |exit.c||
 |built_in.c||
 |_getenv.c||
+
 ## Compilation
 ```
 gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+```
+## Usage
+* Interactive mode:
+```
+  ./hsh
+Hugo is the best SWE, I agree: ls
+file1.c  file2.o  README.md
+```
+* Non-interactive mode:
+```
+echo "ls -l" | ./hsh
+```
+## Example commands
+```
+/bin/ls
+echo Hello, world
+pwd
+env
 ```
 
 ## Flowchart
