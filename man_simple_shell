@@ -1,0 +1,91 @@
+.TH Simple Shell
+.SH\m[Red]Simple Shell\m[white]
+.ce 
+\m[red]Simple Shell Project\m[white]
+March 2025
+.sp 2
+
+.SH \m[red]SYNOPSIS:\m[white]
+.PP
+#include "main.h"
+.br
+int main(void);
+.sp 2
+
+.SH \m[red]DESCRIPTION:\m[white]
+.PP
+The shell, named hsh, replicates basic functionalities of a Unix shell, including command execution, path searching, and error handling.
+The program is designed to read commands from the standard input, tokenize them, execute them in a child process, and handle errors.
+It also supports executing commands both with absolute paths and by searching the PATH environment variable.
+.PP
+
+.SH \m[red]USAGE:\m[white]
+.TS
+center allbox tab(*);
+l r.
+\m[yellow]ls\m[] * Show what's in the file.
+\m[yellow]pwd\m[] * Temporary file.
+\m[yellow]exit\m[] * Quit or exit the run file.
+\m[yellow]...\m[]* .
+.TE
+
+.SH \m[red]FUNCTION PROTOTYPE:\m[white]
+.TS
+center allbox tab(/);
+c.
+\m[magenta]void \m[green]parse_command\m[white](\m[magenta]char *\m[yellow]command\m[white], \m[magenta]char **\m[yellow]args\m[white], \m[magenta]char *\m[yellow]delim\m[white]);
+\m[magenta]void \m[green]execute_command\m[white](\m[magenta]char **\m[yellow]args\m[white], \m[magenta]char **\m[yellow]env\m[white]);
+
+\m[magenta]int \m[green]return_exe\m[white](\m[magenta]char **\m[yellow]args\m[white], \m[magenta]char **\m[yellow]env\m[white]);
+
+\m[magenta]void \m[green]exit_shell\m[white](\m[magenta]char *\m[yellow]ciao\m[white]);
+\m[magenta]char *\m[green]_getenv\m[white](\m[magenta]const char *\m[yellow]name\m[white], \m[magenta]char **\m[yellow]env\m[white]);
+\m[magenta]void \m[green]print_env\m[white](\m[magenta]char **\m[yellow]env\m[white]);
+.TE
+.PP
+.SH \m[red]COMPILATION\m[white]
+Compile the shell using:
+.RS
+.B \m[cyan]gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell\m[white]
+.RE
+.PP
+.SH \m[red]EXAMPLES:\m[white]
+.PP
+.B \m[cyan]Example\m[white] :
+.EX
+int result = \m[magenta]_printf\m[white]("\m[yellow]Hello\m[white], %s\m[yellow]!\m[white]\\n", "\m[yellow]World\m[white]");
+printf("Printed %d char.\\n", result);
+.EE
+Output:
+.nf
+\m[yellow]Hello, World!\m[white]
+Printed 14 characters.
+.fi
+
+.B \m[cyan]Example Capital Characters\m[white] :
+.nf
+int result = \m[magenta]_printf\m[white]("Char: %c\\n", '\m[yellow]A\m[white]');
+printf("Printed %d char.\\n", result);
+.fi
+Output:
+.nf
+Char: \m[yellow]A\m[white]
+Printed 26 characters.
+.fi
+
+.B \m[cyan]Example Symbole\m[white] :
+.nf
+int result = \m[magenta]_printf\m[white]("Percentage sign:%%\\n", '\m[yellow]%\m[white]');
+printf("Printed %d char.\\n", result);
+.fi
+Output:
+.nf
+Percentage sign: \m[yellow]%\m[white]
+Printed 19 characters.
+.fi
+.sp 2
+
+.SH \m[red]AUTHORS:\m[white]
+.nf
+\m[green]Simon Paulin, Christophe Barrere, Laura Aupetit.\m[white]
+.fi

@@ -1,49 +1,55 @@
 #include "main.h"
 /**
- * 
+ * return_exe - Search for a command in the PATH
+ * @args: Array of arguments, where args[0] is the name of the command
+ * @env: ...
  *
- * 
- *
- * 
+ * Return: 0 if the executable is found, -1 otherwise
  */
-
-int return_exe(char **args)
+int return_exe(char **args, char **env)
 {
-	int i = 0, j = 0;
-	char *path[1024];
-	char *full_path;
-	char temp[1024];
-	char *token;
+	int i = 0;
+	char *path_list[1024];
+	char *path_env, *dup_path;
+	char *temp;
+	char *delim = ":";
 
+<<<<<<< HEAD
 	full_path = strdup(_getenv("PATH"));
+=======
+	path_env = _getenv("PATH", env);
+	if (path_env == NULL || *path_env == '\0')
+		return (-1);
+	dup_path = strdup(path_env);
+	if (dup_path == NULL)
+		return (-1);
+>>>>>>> refs/remotes/origin/main
 
-	token = strtok(full_path, ":");
-	
-	while (token != NULL)
-        {
-                path[i++] = token;
-                token = strtok(NULL, ":");
-        }
-
-        path[i] = NULL;
-
-	strcpy(temp, "/");
-	strcat(temp, args[0]);
-	args[0] = temp;
-
-	while (path[j] != NULL)
+	parse_command(dup_path, path_list, delim);
+	while (path_list[i] != NULL)
 	{
-		strcat(path[j], args[0]);
-
-		if (access(path[j], F_OK) == 0)
+		temp = malloc(strlen(path_list[i]) + 1 + strlen(args[0]) + 1);
+		if (temp == NULL)
 		{
-			args[0] = path[j];
-			free(full_path);
+			free(dup_path);
+			return (-1);
+		}
+		strcpy(temp, path_list[i]);
+		strcat(temp, "/");
+		strcat(temp, args[0]);
+		if (access(temp, F_OK) == 0)
+		{
+			args[0] = strdup(temp);
+			free(temp);
+			free(dup_path);
+			if (args[0] == NULL)
+			return (-1);
 			return (0);
 		}
-		j++;
+		free(temp);
+		i++;
 	}
-
-	free(full_path);
+	free(dup_path);
 	return (-1);
 }
+
