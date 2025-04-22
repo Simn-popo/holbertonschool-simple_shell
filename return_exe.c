@@ -14,16 +14,12 @@ int return_exe(char **args, char **env)
 	char *temp;
 	char *delim = ":";
 
-<<<<<<< HEAD
-	full_path = strdup(_getenv("PATH"));
-=======
 	path_env = _getenv("PATH", env);
 	if (path_env == NULL || *path_env == '\0')
 		return (-1);
 	dup_path = strdup(path_env);
 	if (dup_path == NULL)
 		return (-1);
->>>>>>> refs/remotes/origin/main
 
 	parse_command(dup_path, path_list, delim);
 	while (path_list[i] != NULL)
