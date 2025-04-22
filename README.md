@@ -28,11 +28,11 @@ The Holberton School's Simple Shell project concludes the first term of the fund
 📂Files main functions
 |FILE|DESCRIPTION|
 |:----------------|:----------------|
-|main.c| Entry point|
+|main.c| Entry point and infinit loop|
 |main.h| Contains the function prototypes and libraries|
 |parse.c| Tokenizes the input string|
-|execute.c||
-|return_exe.c||
+|execute.c| Creates child process and runs command|
+|return_exe.c| Searches for an executable in the PATH|
 |exit.c||
 |built_in.c||
 |_getenv.c||
