@@ -40,7 +40,7 @@ The Holberton School's Simple Shell project concludes the first term of the fund
 ```
 gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 ```
-## Usage
+## Usages
 * Interactive mode:
 ```
   ./hsh
@@ -51,7 +51,7 @@ file1.c  file2.o  README.md
 ```
 echo "ls -l" | ./hsh
 ```
-## Example commands
+## Commands examples
 ```
 /bin/ls
 echo Hello world
