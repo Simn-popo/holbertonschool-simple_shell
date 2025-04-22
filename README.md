@@ -24,6 +24,7 @@ The Holberton School's Simple Shell project concludes the first term of the fund
 * Implement the env built-in, that prints the current environment
 
 ## Features
+The main function implements an infinite loop to read commands entered by the user, parse them, and execute them. It supports commands with relative or absolute paths, checks for their existence, and displays an appropriate error message if a command does not exist.
 
 📂Files main functions
 |FILE|DESCRIPTION|
