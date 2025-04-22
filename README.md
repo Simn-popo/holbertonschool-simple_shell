@@ -33,9 +33,8 @@ The Holberton School's Simple Shell project concludes the first term of the fund
 |parse.c| Tokenizes the input string|
 |execute.c| Creates child process and runs command|
 |return_exe.c| Searches for an executable in the PATH|
-|exit.c||
-|built_in.c||
-|_getenv.c||
+|built_in.c| loops through and displays each environment variable|
+|_getenv.c| Retrieves the value of an environment variable|
 
 ## Compilation
 ```
