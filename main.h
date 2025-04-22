@@ -10,7 +10,11 @@
 
 void parse_command(char *command, char **args);
 void execute_command(char **args);
+
 int return_exe(char **args);
-int handle_builtin(char **args);
+
+int _atoi(const char *str);
+int exit(const char *str);
+extern char **environ;
 
 #endif

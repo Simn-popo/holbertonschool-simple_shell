@@ -15,7 +15,7 @@ int return_exe(char **args)
 	char temp[1024];
 	char *token;
 
-	full_path = strdup(getenv("PATH"));
+	full_path = strdup(_getenv("PATH"));
 
 	token = strtok(full_path, ":");
 	
