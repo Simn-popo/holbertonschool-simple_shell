@@ -44,9 +44,9 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 ## Usages
 * Interactive mode:
 ```
-  ./hsh
 Hugo is the best SWE, I agree: ls
-file1.c  file2.o  README.md
+ AUTHORS                        README.md   a.out        execute.c   main.c   man_1_simple_shell   return_exe.c
+'Flowcharts Simple Shell.pdf'   _getenv.c   built_in.c   hsh         main.h   parse.c
 ```
 * Non-interactive mode:
 ```
