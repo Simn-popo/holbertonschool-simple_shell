@@ -29,7 +29,7 @@ The Holberton School's Simple Shell project concludes the first term of the fund
 |FILE|DESCRIPTION|
 |:----------------|:----------------|
 |main.c| Entry point|
-|main.h| Contains the function prototypes|
+|main.h| Contains the function prototypes and libraries|
 |parse.c||
 |execute.c||
 |return_exe.c||
