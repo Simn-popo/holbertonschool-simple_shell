@@ -55,7 +55,7 @@ echo "ls -l" | ./hsh
 ## Example commands
 ```
 /bin/ls
-echo Hello, world
+echo Hello world
 pwd
 env
 ```
