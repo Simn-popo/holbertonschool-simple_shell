@@ -15,7 +15,8 @@ void execute_command(char **args, char **env);
 
 int return_exe(char **args, char **env);
 
-void exit_shell (char *ciao);
+int _atoi(const char *str);
+void exit_shell(char *ciao);
 char *_getenv(const char *name, char **env);
 void print_env(char **env);
 
