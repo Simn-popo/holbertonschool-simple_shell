@@ -7,6 +7,7 @@ March 2025
 
 .SH \m[red]SYNOPSIS:\m[white]
 .PP
+
 #include "main.h"
 .br
 int main(void);
@@ -19,12 +20,27 @@ The program is designed to read commands from the standard input, tokenize them,
 It also supports executing commands both with absolute paths and by searching the PATH environment variable.
 .PP
 
+.SH \m[red]FEATURES:\m[white]
+.IP \[bu] 2
+Interactive and non-interactive shell modes
+.IP \[bu] 2
+Dynamic command line reading
+.IP \[bu] 2
+Input tokenization
+.IP \[bu] 2
+Command path resolution
+.IP \[bu] 2
+Process creation and execution
+.IP \[bu] 2
+Environment variable handling
+.PP
+
 .SH \m[red]USAGE:\m[white]
 .TS
 center allbox tab(*);
 l r.
 \m[yellow]ls\m[] * Show what's in the file.
-\m[yellow]pwd\m[] * Temporary file.
+\m[yellow]pwd\m[] * Display the current directory.
 \m[yellow]exit\m[] * Quit or exit the run file.
 \m[yellow]...\m[]* .
 .TE
@@ -53,8 +69,9 @@ Compile the shell using:
 .PP
 .B \m[cyan]Example\m[white] :
 .EX
-int result = \m[magenta]_printf\m[white]("\m[yellow]Hello\m[white], %s\m[yellow]!\m[white]\\n", "\m[yellow]World\m[white]");
-printf("Printed %d char.\\n", result);
+
+/root/holbertonschool-simple_shell
+
 .EE
 Output:
 .nf
