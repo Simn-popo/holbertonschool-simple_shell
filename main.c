@@ -34,7 +34,7 @@ int main(int ac, char **env)
 
 		if (strchr(args[0], '/') != NULL)/* if cmd get '/' absolute path */
 		{
-			execute_command(args, environ);
+			exit_status = execute_command(args, environ);
 		}
 		else if (return_exe(args, environ) == 0)/* looking in path */
 		{
