@@ -13,7 +13,7 @@ int execute_command(char **args, char **env)
 	pid_t pid = fork();
 
 	if (args[0] == NULL)
-		return(0);
+		return (0);
 
 	if (pid == -1)
 	{
@@ -35,7 +35,7 @@ int execute_command(char **args, char **env)
 
 		if (WIFEXITED(status))
 		{
-			return WEXITSTATUS(status);
+			return (WEXITSTATUS(status));
 		}
 		else
 			return (-1);
