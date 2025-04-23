@@ -38,7 +38,7 @@ int main(int ac, char **env)
 		}
 		else if (return_exe(args, environ) == 0)/* looking in path */
 		{
-			exit_status = execute_command(args, environ);
+			execute_command(args, environ);
 			free(args[0]);
 		}
 		else
