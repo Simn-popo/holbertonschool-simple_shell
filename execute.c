@@ -32,5 +32,7 @@ void execute_command(char **args, char **env)
 	else
 	{
 		wait(&status);
+		if (WIFEXITED(status))
+			exit(WEXITSTATUS(status));
 	}
 }
