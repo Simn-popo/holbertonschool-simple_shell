@@ -15,16 +15,6 @@ void parse_command(char *command, char **args, char *delim)
 
 	while (token != NULL)
 	{
-		if (token[0] == '"' || token[0] == '\'')
-		{
-			size_t len = strlen(token);
-
-			if (token[len - 1] == token[0])
-			{
-				token[len - 1] = '\0';
-				token++;
-			}
-		}
 		args[i++] = token;
 		token = strtok(NULL, delim);
 	}
