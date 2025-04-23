@@ -20,7 +20,7 @@ int main(int ac, char **env)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			printf("Hugo is the best SWE, I agree: ");
+			printf("Hugo and Fabien is the best SWE, I agree: ");
 		nread = getline(&ciao, &len, stdin);
 		if (nread == -1)
 			break;
@@ -32,11 +32,11 @@ int main(int ac, char **env)
 		if (args[0] == NULL)
 			continue;
 
-		if (strchr(args[0], '/') != NULL)
+		if (strchr(args[0], '/') != NULL)/* if cmd get '/' absolute path */
 		{
 			execute_command(args, environ);
 		}
-		else if (return_exe(args, environ) == 0)
+		else if (return_exe(args, environ) == 0)/* looking in path */
 		{
 			execute_command(args, environ);
 			free(args[0]);
