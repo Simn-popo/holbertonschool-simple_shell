@@ -7,7 +7,7 @@
  * Return: The exit status of the last executed command
  */
 
-int main(int ac, char **av)
+int main(int ac, char **env)
 {
 	char *ciao = NULL, *args[1024];
 	char *copy_env[1024];
@@ -16,13 +16,7 @@ int main(int ac, char **av)
 	int exit_status = 0;
 
 	(void)ac;
-<<<<<<< HEAD
 	while (1) 
-=======
-	(void)av;
-
-	while (1)
->>>>>>> simon
 	{
 		if (isatty(STDIN_FILENO))
 			printf("Hugo and Fabien is the best SWE, I agree: ");
