@@ -26,7 +26,7 @@ int main(int ac, char **env)
 			break;
 
 		ciao[strcspn(ciao, "\n")] = '\0';
-		exit_shell(ciao);
+		exit_shell(ciao, exit_status);
 		parse_command(ciao, args, " ");
 
 		if (args[0] == NULL)
@@ -38,7 +38,7 @@ int main(int ac, char **env)
 		}
 		else if (return_exe(args, environ) == 0)/* looking in path */
 		{
-			execute_command(args, environ);
+			exit_status = execute_command(args, environ);
 			free(args[0]);
 		}
 		else
