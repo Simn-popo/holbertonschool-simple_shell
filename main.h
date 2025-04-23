@@ -11,7 +11,7 @@
 extern char **environ;
 
 void parse_command(char *command, char **args, char *delim);
-void execute_command(char **args, char **env);
+int execute_command(char **args, char **env);
 
 int return_exe(char **args, char **env);
 
