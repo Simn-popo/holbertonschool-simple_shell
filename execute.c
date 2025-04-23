@@ -7,13 +7,13 @@
  *
  * Return: nothing
  */
-void execute_command(char **args, char **env)
+int execute_command(char **args, char **env)
 {
 	int status;
 	pid_t pid = fork();
 
 	if (args[0] == NULL)
-		return;
+		return (-1);
 
 	if (pid == -1)
 	{
@@ -35,4 +35,6 @@ void execute_command(char **args, char **env)
 		if (WIFEXITED(status))
 			exit(WEXITSTATUS(status));
 	}
+
+	return(WEXITSTATUS(status));
 }

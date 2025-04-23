@@ -23,11 +23,11 @@ void print_env(char **env)
  * 
  */
 
-void exit_shell (char *ciao)
+void exit_shell (char *ciao, int exit_status)
 {
 	if (strcmp(ciao, "exit") == 0)
 	{
 		free(ciao);
-		exit(0);
+		exit(exit_status);
 	}
 }
