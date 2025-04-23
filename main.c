@@ -10,6 +10,7 @@
 int main(int ac, char **env)
 {
 	char *ciao = NULL, *args[1024];
+	char *copy_env[1024];
 	size_t len = 0;
 	ssize_t nread;
 	int exit_status = 0;
@@ -27,7 +28,7 @@ int main(int ac, char **env)
 		parse_command(ciao, args, " ");
 		if (args[0] == NULL)
 			continue;
-		if (handle_env(args, env, &exit_status))
+		if (handle_env(args, env, &exit_status, copy_env))
 			continue;
 		if (strchr(args[0], '/') != NULL)/* if cmd get '/' absolute path */
 			exit_status = execute_command(args, env);

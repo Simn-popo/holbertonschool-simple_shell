@@ -7,26 +7,31 @@
  * Return: nothing
  */
 
-void print_env(char **env)
+void print_env(char **env, char **copy_env)
 {
 	int i = 0;
 
-	if (env == NULL)
-	{
-		printf("error : env is null\n");
-		return;
-	}
-	
-	printf("DEBUG: Printing environment variables...\n");
-
 	while (env[i] != NULL)
 	{
-		printf("env[%d] = %s\n", i, env[i]);
-		printf("%s\n", env[i]);
+		copy_env[i] = strdup(env[i]);
 		i++;
 	}
 }
 
+/**
+ * 
+ */
+
+void free_env(char **env)
+{
+	int i = 0;
+
+	while(env[i] != NULL)
+	{
+		free(env[i]);
+		i++;
+	}
+}
 /**
  * exit_shell - exit the mini shell
  * 
@@ -41,12 +46,15 @@ void exit_shell (char *ciao, int exit_status)
 	}
 }
 
-int handle_env(char **args, char **env, int *exit_status)
+int handle_env(char **args, char **env, int *exit_status, char **copy_env)
 {
+	(void)copy_env;
+	
 	if (args[0] != NULL && strcmp(args[0], "env") == 0)
 	{
-		printf("DEBUG: env command detected\n");
-		print_env(env);
+		char *copy_env[1096];
+
+		print_env(env, copy_env);
 		*exit_status = 0;
 		return(1);
 	}
