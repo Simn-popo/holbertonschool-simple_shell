@@ -7,7 +7,7 @@
  * Return: The exit status of the last executed command
  */
 
-int main(int ac, char **env)
+int main(int ac, char **av)
 {
 	char *ciao = NULL, *args[1024];
 	size_t len = 0;
@@ -15,7 +15,7 @@ int main(int ac, char **env)
 	int exit_status = 0;
 
 	(void)ac;
-	(void)env;
+	(void)av;
 
 	while (1)
 	{
