@@ -17,14 +17,15 @@ int return_exe(char **args, char **env)
 	path_env = _getenv("PATH", env);
 	if (path_env == NULL || *path_env == '\0')
 		return (-1);
-	dup_path = strdup(path_env);
+	dup_path = strdup(path_env);/*dup path cause parse_command gonna modifier*/
 	if (dup_path == NULL)
 		return (-1);
 
-	parse_command(dup_path, path_list, delim);
+	parse_command(dup_path, path_list, delim);/*cut path in repertory*/
 	while (path_list[i] != NULL)
 	{
 		temp = malloc(strlen(path_list[i]) + 1 + strlen(args[0]) + 1);
+		/*built complet path (file + '/' + cmd)*/
 		if (temp == NULL)
 		{
 			free(dup_path);
@@ -35,11 +36,11 @@ int return_exe(char **args, char **env)
 		strcat(temp, args[0]);
 		if (access(temp, F_OK) == 0)
 		{
-			args[0] = strdup(temp);
+			args[0] = strdup(temp); /*remplace args[0] by full path*/
 			free(temp);
 			free(dup_path);
 			if (args[0] == NULL)
-			return (-1);
+				return (-1);
 			return (0);
 		}
 		free(temp);
