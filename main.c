@@ -20,7 +20,7 @@ int main(int ac, char **env)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			printf("Hugo is the best SWE, I agree: ");
+			printf("Hugo and Fabien is the best SWE, I agree: ");
 		nread = getline(&ciao, &len, stdin);
 		if (nread == -1)
 			break;
