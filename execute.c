@@ -28,6 +28,7 @@ void execute_command(char **args, char **env)
 			perror(args[0]);
 			exit(127);
 		}
+		exit(2);
 	}
 	else
 	{
