@@ -7,7 +7,7 @@
  * Return: The exit status of the last executed command
  */
 
-int main(int ac, char **av)
+int main(int ac, char **env)
 {
 	char *ciao = NULL, *args[1024];
 	size_t len = 0;
@@ -15,7 +15,7 @@ int main(int ac, char **av)
 	int exit_status = 0;
 
 	(void)ac;
-	(void)av;
+	(void)env;
 
 	while (1)
 	{
@@ -34,11 +34,11 @@ int main(int ac, char **av)
 
 		if (strchr(args[0], '/') != NULL)
 		{
-			execute_command(args, environ);
+			exit_status = execute_command(args, environ);
 		}
 		else if (return_exe(args, environ) == 0)
 		{
-			execute_command(args, environ);
+			exit_status = execute_command(args, environ);
 			free(args[0]);
 		}
 		else
