@@ -9,14 +9,14 @@
 #include <sys/wait.h>
 
 extern char **environ;
-
 void parse_command(char *command, char **args, char *delim);
-void execute_command(char **args, char **env);
-
+int execute_command(char **args, char **env);
 int return_exe(char **args, char **env);
 
 void exit_shell(char *ciao, int exit_status);
 char *_getenv(const char *name, char **env);
-void print_env(char **env);
+void print_env(char **env, char **copy_env);
+int handle_env(char **args, char **env, int *exit_status, char **copy_env);
+void free_env(char **env);
 
 #endif

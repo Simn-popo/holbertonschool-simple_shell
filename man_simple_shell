@@ -36,13 +36,19 @@ Environment variable handling
 .PP
 
 .SH \m[red]USAGE:\m[white]
+You can run any command available in your environment's PATH.
+Examples of commands that typically work: ls, pwd, echo, whoami, env, and exit (implemented in the shell directly).
+Built-in commands like cd do not work on this simple shell.
+.PP
 .TS
 center allbox tab(*);
 l r.
 \m[yellow]ls\m[] * Show what's in the file.
 \m[yellow]pwd\m[] * Display the current directory.
 \m[yellow]exit\m[] * Quit or exit the run file.
-\m[yellow]...\m[]* .
+\m[yellow]echo\m[] * Prints on the terminal what is written to it
+\m[yellow]whoami\m[] * Says in which repertoire we are
+\m[yellow]env\m[] * Running a programme in a modified environment
 .TE
 
 .SH \m[red]FUNCTION PROTOTYPE:\m[white]
@@ -67,40 +73,57 @@ Compile the shell using:
 .PP
 .SH \m[red]EXAMPLES:\m[white]
 .PP
-.B \m[cyan]Example\m[white] :
+.B \m[cyan]Example pwd\m[white] :
 .EX
-
+Hugo and Fabien the best SWE, I agree: pwd
 /root/holbertonschool-simple_shell
-
-.EE
-Output:
-.nf
-\m[yellow]Hello, World!\m[white]
-Printed 14 characters.
-.fi
-
-.B \m[cyan]Example Capital Characters\m[white] :
-.nf
-int result = \m[magenta]_printf\m[white]("Char: %c\\n", '\m[yellow]A\m[white]');
-printf("Printed %d char.\\n", result);
-.fi
-Output:
-.nf
-Char: \m[yellow]A\m[white]
-Printed 26 characters.
-.fi
-
-.B \m[cyan]Example Symbole\m[white] :
-.nf
-int result = \m[magenta]_printf\m[white]("Percentage sign:%%\\n", '\m[yellow]%\m[white]');
-printf("Printed %d char.\\n", result);
-.fi
-Output:
-.nf
-Percentage sign: \m[yellow]%\m[white]
-Printed 19 characters.
-.fi
 .sp 2
+
+.B \m[cyan]Example ls\m[white] :
+.EX
+Hugo and Fabien the best SWE, I agree: ls
+AUTHORS                        built_in.c   man_simple_shell
+'Flowcharts Simple Shell.pdf'   execute.c    parse.c
+README.md                      hsh          return_exe.c
+_getenv.c                      main.c
+a.out                          main.h
+
+.B \m[cyan]Example ls -la\m[white] :
+.EX
+Hugo and Fabien the best SWE, I agree: ls -la
+total 136
+drwxr-xr-x  3 user user  4096 Apr 23 13:55  .
+drwxr-x--- 20 user user  4096 Apr 23 14:17  ..
+-rw-r--r--  1 user user 12288 Apr 23 13:55  .execute.c.swp
+drwxr-xr-x  8 user user  4096 Apr 23 13:55  .git
+-rw-r--r--  1 user user   215 Apr 17 14:16  AUTHORS
+-rw-r--r--  1 user user 29924 Apr 23 10:15 'Flowcharts Simple Shell.pdf'
+-rw-r--r--  1 user user  3934 Apr 23 10:15  README.md
+-rw-r--r--  1 user user   466 Apr 23 10:15  _getenv.c
+-rwxr-xr-x  1 user user 17464 Apr 23 10:15  a.out
+-rw-r--r--  1 user user   431 Apr 23 13:55  built_in.c
+-rw-r--r--  1 user user   516 Apr 23 13:55  execute.c
+-rwxr-xr-x  1 user user 17432 Apr 23 13:55  hsh
+-rw-r--r--  1 user user  1041 Apr 23 13:55  main.c
+-rw-r--r--  1 user user   461 Apr 23 13:55  main.h
+-rw-r--r--  1 user user  3209 Apr 23 14:18  man_simple_shell
+-rw-r--r--  1 user user   559 Apr 23 13:55  parse.c
+-rw-r--r--  1 user user  1163 Apr 23 13:55  return_exe.c
+.sp 2
+.B \m[cyan]Example whoami\m[white] :
+.EX
+Hugo and Fabien is the best SWE, I agree: whoami
+user
+.PP
+
+.B \m[cyan]Example exit\m[white] :
+.EX
+Hugo and Fabien is the best SWE, I agree: exit
+\m[cyan](closes the simple shell)\m[white]
+.PP
+
+.SH \m[red]EXIT VALUES\m[white]
+Returns the exit status of the last executed command (0 if successful, otherwise other value)
 
 .SH \m[red]AUTHORS:\m[white]
 .nf

@@ -7,7 +7,7 @@
  * Return: The exit status of the last executed command
  */
 
-int main(int ac, char **env)
+int main(int ac, char **av)
 {
 	char *ciao = NULL, *args[1024];
 	size_t len = 0;
@@ -15,12 +15,12 @@ int main(int ac, char **env)
 	int exit_status = 0;
 
 	(void)ac;
-	(void)env;
+	(void)av;
 
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			printf("Hugo and Fabien is the best SWE, I agree: ");
+			printf("Hugo is the best SWE, I agree: ");
 		nread = getline(&ciao, &len, stdin);
 		if (nread == -1)
 			break;
@@ -32,11 +32,11 @@ int main(int ac, char **env)
 		if (args[0] == NULL)
 			continue;
 
-		if (strchr(args[0], '/') != NULL)/* if cmd get '/' absolute path */
+		if (strchr(args[0], '/') != NULL)
 		{
 			execute_command(args, environ);
 		}
-		else if (return_exe(args, environ) == 0)/* looking in path */
+		else if (return_exe(args, environ) == 0)
 		{
 			execute_command(args, environ);
 			free(args[0]);
