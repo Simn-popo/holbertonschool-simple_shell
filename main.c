@@ -2,7 +2,7 @@
 /**
  * main - entry point UNIX command line interpreter
  * @ac: Argument count
- * @av: Array
+ * @env: Array
  *
  * Return: The exit status of the last executed command
  */

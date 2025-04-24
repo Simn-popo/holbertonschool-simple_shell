@@ -3,7 +3,6 @@
 /**
  * print_env - display env variable
  * @env: environment variables
- * @copy_env: Array of strings representing the environment variables
  *
  * Return: nothing
  */
