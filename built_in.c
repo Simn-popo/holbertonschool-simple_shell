@@ -2,7 +2,7 @@
 
 /**
  * print_env - display env variable
- * @env: Array of strings representing the environment variables
+ * @copy_env: Array of strings representing the environment variables
  *
  * Return: nothing
  */
